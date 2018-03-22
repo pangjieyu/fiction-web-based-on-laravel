@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!DOTYPE>
 <html>
     <head>
         <title>Sample App</title>
     </head>
     <body>
-        <h1>ABOUT</h1>
+        @yield('content')
     </body>
 </html>
