@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html>
-    <head>
-         <title>Sample App</title>
-    </head>
-    <body>
-        <h1>HELP</h1>
-    </body>
-</html>
+@extends('layout.default')
+@section('content')
+    <h1>帮助</h1>
+@stop
+
+@section('title','help')

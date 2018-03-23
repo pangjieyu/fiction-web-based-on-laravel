@@ -1,7 +1,7 @@
 <!DOTYPE>
 <html>
     <head>
-        <title>Sample App</title>
+        <title>@yield('title','sample')</title>
     </head>
     <body>
         @yield('content')
