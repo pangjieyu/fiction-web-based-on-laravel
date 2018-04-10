@@ -5,14 +5,14 @@
             <nav>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::check())
-                        <li><a href="#">用户列表</a></li>
+                        <li><a href="{{ route('users.index') }}">用户列表</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 {{ Auth::user()->name }} <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('users.show', Auth::user()->id) }}">个人中心</a></li>
-                                <li><a href="#">编辑资料</a></li>
+                                <li><a href="{{ route('users.edit', Auth::user()->id) }}">编辑资料</a></li>
                                 <li class="divider"></li>
                                 <li>
                                     <a id="logout" href="#">
@@ -34,3 +34,53 @@
         </div>
     </div>
 </header>
+{{--<header class="header">
+    <div class="header-inner body-width">
+        <a href="#" class="logo"></a>
+        <div class="category">
+            <a href="#" class="category-link">分类</a>
+            <i class="icon-arrow"></i>
+            <div class="category-result"></div>
+            <!-- 边框 -->
+            <span class="btn-border"></span>
+            <span class="result-border"></span>
+            <span class="neck-border"></span>
+        </div>
+<div class="search">
+            <input type="text" class="search-text" placeholder="Seach here...">
+            <button class="search-btn">
+                <i class="icon-search"></i>
+            </button>
+        </div>
+
+        <nav class="header-nav">
+            <ul>
+                <li>
+                    <span class="line"></span>
+                    <a href="#" class="dreamer">tang生活家</a>
+                    <i class="icon-text__pink icon-new">new</i>
+                </li>
+                <li>
+                    <span class="line"></span>
+                    <a href="#" class="icon-text__pink register">注册</a>
+                </li>
+                <li>
+                    <span class="line"></span>
+                    <a href="#">登录</a>
+                </li>
+<li>
+                    <span class="line"></span>
+                    <i class="icon-app"></i>
+                    <a href="#" class="app">手机版</a>
+                    <i class="icon-arrow"></i>
+                    <div class="app-hover">
+                        <a href="#"></a>
+                        <p>扫一扫下载手机客户端</p>
+                    </div>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+    <div class="header-shadow"></div>
+</header>--}}

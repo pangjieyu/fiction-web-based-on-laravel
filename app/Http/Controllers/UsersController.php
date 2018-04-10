@@ -3,19 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Policies\UserPolicy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
+
+
+    public function __construct()
+    {
+
+        //用户权限
+        $this->middleware('auth', [
+            'except' => ['show', 'create', 'store']
+        ]);
+        //游客权限
+        $this->middleware('guest', [
+            'only' => ['create']
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function index()
     {
         //
+        $users = User::paginate(10);
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -43,11 +60,13 @@ class UsersController extends Controller
             'email' => 'required|email|unique:users|max:255',
             'password' => 'required|confirmed|min:6'
         ]);
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
+
         Auth::login($user);
         session()->flash('success','欢迎');
         return redirect()->route('users.show', [$user]);
@@ -56,7 +75,7 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -68,31 +87,49 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
         //
+        $this->authorize('update', $user);
+        return view('users.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     * @param  \Illuminate\Http\Request $request
+     * @return void
      */
-    public function update(Request $request, $id)
+    public function update(User $user, Request $request)
     {
         //
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'password' => 'nullable|confirmed|min:6'
+        ]);
+        $this->authorize('update', $user);
+
+        $data = [];
+        $data['name'] = $request->name;
+        if($request->password) {
+            $data['password'] = bcrypt($request->password);
+        }
+        $user->update($data);
+
+        session()->flash('success', '个人资料更新成功');
+
+        return redirect()->route('users.show', $user->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     * @return void
      */
     public function destroy($id)
     {

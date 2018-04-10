@@ -8415,6 +8415,14 @@ p {
   color: #fff;
 }
 
+#logout {
+  cursor: default;
+}
+
+#logout:hover {
+  background-color: transparent;
+}
+
 footer {
   margin-top: 45px;
   padding-top: 5px;
@@ -8511,11 +8519,25 @@ input {
   margin-top: 50px;
 }
 
-#logout {
-  cursor: default;
+.gravatar_edit {
+  margin: 15px auto;
+  text-align: center;
 }
 
-#logout:hover {
-  background-color: transparent;
+.gravatar_edit .gravatar {
+  float: none;
+  max-width: 100px;
+}
+
+.users {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.users li {
+  overflow: auto;
+  padding: 10px 0;
+  border-bottom: 1px solid #eeeeee;
 }
 
