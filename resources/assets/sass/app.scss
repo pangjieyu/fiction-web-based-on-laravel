@@ -11,7 +11,7 @@ body {
 }
 
 section {
-  overflow: auto;
+  overflow: autokj
 }
 
 textarea {
@@ -52,7 +52,7 @@ p {
 //header
 
 .navbar-inverse {
-  background-color: $navbar-color;
+  background-color:$navbar-color;
 }
 
 #logo {
@@ -186,8 +186,14 @@ input {
   margin: 0;
   padding-left: 0;
   li {
-    overflow: auto;
+    overflow: hidden;
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
+}
+.delete-btn {
+  float: right;
+  position: relative;
+  right: 0;
+  margin-left: 5px;
 }

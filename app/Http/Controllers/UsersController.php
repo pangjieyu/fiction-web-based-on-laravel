@@ -89,6 +89,7 @@ class UsersController extends Controller
      *
      * @param User $user
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function edit(User $user)
     {
@@ -103,6 +104,7 @@ class UsersController extends Controller
      * @param User $user
      * @param  \Illuminate\Http\Request $request
      * @return void
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(User $user, Request $request)
     {

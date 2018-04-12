@@ -4,15 +4,11 @@
 @section('content')
     <div class="col-md-offset-2 col-md-8">
         <h1>所有用户</h1>
-        <ul class="users">
+        <ul class="media-list">
             @foreach ($users as $user)
-                <li>
-                    <img src="{{ $user->gravatar() }}" alt="{{ $user->name }}" class="gravatar"/>
-                    <a href="{{ route('users.show', $user->id )}}" class="username">{{ $user->name }}</a>
-                </li>
+                @include('users._user')
             @endforeach
         </ul>
-
         {!! $users->render() !!}
     </div>
 @stop
