@@ -16,7 +16,7 @@ class UsersController extends Controller
 
         //用户权限
         $this->middleware('auth', [
-            'except' => ['show', 'create', 'store']
+            'except' => ['show', 'create', 'store','index']
         ]);
         //游客权限
         $this->middleware('guest', [
@@ -26,7 +26,7 @@ class UsersController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return void
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -103,7 +103,7 @@ class UsersController extends Controller
      *
      * @param User $user
      * @param  \Illuminate\Http\Request $request
-     * @return void
+     * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(User $user, Request $request)
@@ -130,11 +130,17 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
-     * @return void
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
         //
+        $this->authorize('destroy',$user);
+        $user->delete();
+        session()->flash('success','成功删除用户');
+        return back();
     }
 }
