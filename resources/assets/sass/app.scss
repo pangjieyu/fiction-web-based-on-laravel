@@ -2,7 +2,8 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-$navbar-color: #3c3e42;
+$navbar-color: rgb(61, 63, 66);
+//$navbar-color: #b72712;
 
 // universal
 
@@ -11,7 +12,7 @@ body {
 }
 
 section {
-  overflow: autokj
+  overflow: auto;
 }
 
 textarea {
@@ -164,6 +165,7 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+  size: auto;
 }
 
 .panel {

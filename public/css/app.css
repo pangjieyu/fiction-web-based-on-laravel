@@ -8355,7 +8355,7 @@ body {
 }
 
 section {
-  overflow: autokj;
+  overflow: auto;
 }
 
 textarea {
@@ -8397,7 +8397,7 @@ p {
 }
 
 .navbar-inverse {
-  background-color: #3c3e42;
+  background-color: #3d3f42;
 }
 
 #logo {
@@ -8513,6 +8513,7 @@ select,
 
 input {
   height: auto !important;
+  size: auto;
 }
 
 .panel {

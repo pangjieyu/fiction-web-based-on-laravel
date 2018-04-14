@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Policies\UserPolicy;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 use Mail;
 
 class UsersController extends Controller
@@ -32,7 +32,7 @@ class UsersController extends Controller
     public function index()
     {
         //
-        $users = User::paginate(10);
+        $users = (new \App\Models\User)->paginate(10);
         return view('users.index', compact('users'));
     }
 
@@ -151,7 +151,7 @@ class UsersController extends Controller
     public function sendEmailConfirmationTo($user) {
         $view = 'emails.confirm';
         $data = compact('user');
-        $from = 'pang.jie.yu@outlook.com';
+        $from = 'pangjieyu97@gmail.com';
         $name = 'Pang';
         $to = $user->email;
         $subject = "感谢注册 Sample 应用！请确认你的邮箱。";
@@ -161,7 +161,7 @@ class UsersController extends Controller
     }
 
     public function confirmEmail($token) {
-        $user = User::where('activation_token',$token)->firstOrFail();
+        $user = (new \App\Models\User)->where('activation_token',$token)->firstOrFail();
         $user->activation_token = null;
         $user->activated = true;
         $user->save();
