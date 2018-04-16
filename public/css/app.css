@@ -8435,8 +8435,15 @@ p {
 
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #9d9d9d;
+  color: #f15151;
   background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: transparent !important;
+  color: #9d9d9d !important;
 }
 
 footer {
