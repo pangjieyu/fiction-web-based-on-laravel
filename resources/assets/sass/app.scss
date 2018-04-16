@@ -2,13 +2,14 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-$navbar-color: rgb(61, 63, 66);
+$navbar-color: rgb(255, 255, 255);
 //$navbar-color: #b72712;
 
 // universal
 
 body {
   padding-top: 60px;
+  background-color: rgb(250, 250, 250);
 }
 
 section {
@@ -54,19 +55,23 @@ p {
 
 .navbar-inverse {
   background-color:$navbar-color;
+  border-color: #ffffff00;
+}
+.navbar-nav > li > .dropdown-menu {
+  background-color: #fafafa;
 }
 
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: rgb(252,13,28);
   text-decoration: none;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: #fff;
+    color: #f91629;
   }
 }
 
@@ -75,6 +80,14 @@ p {
   &:hover {
     background-color: transparent;
   }
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #9d9d9d;
+}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+  color: #9d9d9d;
+  background-color: transparent;
 }
 
 // footer

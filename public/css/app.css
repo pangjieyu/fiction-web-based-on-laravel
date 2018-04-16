@@ -8352,6 +8352,7 @@ button.close {
 
 body {
   padding-top: 60px;
+  background-color: #fafafa;
 }
 
 section {
@@ -8397,14 +8398,19 @@ p {
 }
 
 .navbar-inverse {
-  background-color: #3d3f42;
+  background-color: white;
+  border-color: #ffffff00;
+}
+
+.navbar-nav > li > .dropdown-menu {
+  background-color: #fafafa;
 }
 
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: #fc0d1c;
   text-decoration: none;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -8412,7 +8418,7 @@ p {
 }
 
 #logo:hover {
-  color: #fff;
+  color: #f91629;
 }
 
 #logout {
@@ -8420,6 +8426,16 @@ p {
 }
 
 #logout:hover {
+  background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #9d9d9d;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #9d9d9d;
   background-color: transparent;
 }
 

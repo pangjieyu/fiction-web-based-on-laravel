@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="jumbotron">
-        <h1>Hello world</h1>
+        <h1>P-FICTION</h1>
         <p class="lead">
-            你现在所看到的是庞界宇的主页。
+            P-Fiction——为所有用户服务的小说站
         </p>
         <p>
             一切，将从这里开始。
