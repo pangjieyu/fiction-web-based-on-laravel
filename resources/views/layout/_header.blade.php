@@ -1,86 +1,51 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container">
-        <div class="col-md-offset-1 col-md-10">
-            <a href="/" id="logo">P-Fiction</a>
-            <nav>
-                <ul class="nav navbar-nav navbar-right">
-                    @if (Auth::check())
-                        <li><a href="{{ route('users.index') }}">用户列表</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                {{ Auth::user()->name }} <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ route('users.show', Auth::user()->id) }}">个人中心</a></li>
-                                <li><a href="{{ route('users.edit', Auth::user()->id) }}">编辑资料</a></li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a id="logout" href="#">
-                                        <form action="{{ route('logout') }}" method="POST">
-                                            {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
-                                            <button class="btn btn-block btn-danger" type="submit" name="button">退出</button>
-                                        </form>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    @else
-                        <li><a href="{{ route('help') }}">帮助</a></li>
-                        <li><a href="{{ route('login') }}">登录</a></li>
-                    @endif
-                </ul>
-            </nav>
-        </div>
-    </div>
-</header>
-{{--<header class="header">
-    <div class="header-inner body-width">
-        <a href="#" class="logo"></a>
-        <div class="category">
-            <a href="#" class="category-link">分类</a>
-            <i class="icon-arrow"></i>
-            <div class="category-result"></div>
-            <!-- 边框 -->
-            <span class="btn-border"></span>
-            <span class="result-border"></span>
-            <span class="neck-border"></span>
-        </div>
-<div class="search">
-            <input type="text" class="search-text" placeholder="Seach here...">
-            <button class="search-btn">
-                <i class="icon-search"></i>
-            </button>
-        </div>
-
-        <nav class="header-nav">
-            <ul>
-                <li>
-                    <span class="line"></span>
-                    <a href="#" class="dreamer">tang生活家</a>
-                    <i class="icon-text__pink icon-new">new</i>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="/">P-FICTION</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li>
-                    <span class="line"></span>
-                    <a href="#" class="icon-text__pink register">注册</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
                 </li>
-                <li>
-                    <span class="line"></span>
-                    <a href="#">登录</a>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Contact</a>
                 </li>
-<li>
-                    <span class="line"></span>
-                    <i class="icon-app"></i>
-                    <a href="#" class="app">手机版</a>
-                    <i class="icon-arrow"></i>
-                    <div class="app-hover">
-                        <a href="#"></a>
-                        <p>扫一扫下载手机客户端</p>
-                    </div>
-                </li>
-
             </ul>
-        </nav>
-    </div>
-    <div class="header-shadow"></div>
-</header>--}}
+            <ul class="nav navbar-nav navbar-right">
+                @if (Auth::check())
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('users.show', Auth::user()->id) }}">个人中心</a></li>
+                            <li><a href="{{ route('users.edit', Auth::user()->id) }}">编辑资料</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a id="logout" href="#">
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button class="btn btn-block btn-danger" type="submit" name="button">
+                                            退出
+                                        </button>
+                                    </form>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @else
+                    <li><a class="nav-link" href="{{ route('help') }}">帮助</a></li>
+                    <li><a class="nav-link" href="{{ route('login') }}">登录</a></li>
+                @endif
+            </ul>
+        </div>
+    </nav>
+</header>
