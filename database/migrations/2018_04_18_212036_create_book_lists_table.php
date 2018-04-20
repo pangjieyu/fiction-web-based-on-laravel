@@ -15,7 +15,7 @@ class CreateBookListsTable extends Migration
     {
         Schema::create('book_lists', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('userId');
+            $table->integer('userId')->index();
             $table->integer('bookId');
             $table->datetime('lastReadTime');
             $table->integer('lastReadChapterId');

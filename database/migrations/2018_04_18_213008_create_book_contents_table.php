@@ -16,7 +16,7 @@ class CreateBookContentsTable extends Migration
         Schema::create('book_contents', function (Blueprint $table) {
             $table->increments('chapterId');
             $table->string('chapterName');
-            $table->integer('bookId');
+            $table->integer('bookId')->index();
             $table->longText('chapterContent');
             $table->dateTime('lastAlterTime');
             $table->timestamps();

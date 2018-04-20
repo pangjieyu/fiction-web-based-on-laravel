@@ -22,7 +22,7 @@ class CreateBooksTable extends Migration
             $table->boolean('bookType');
             $table->string('cover');
             $table->string('authorName');
-            $table->integer('authorId');
+            $table->integer('authorId')->index();
             $table->boolean('audit')->default(true);
 
             $table->timestamps();

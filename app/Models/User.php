@@ -51,4 +51,16 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPassword($token));
     }
+
+    /**
+     * 绑定书
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function book() {
+        return $this->hasMany('App\Models\Book','authorId');
+    }
+
+    public function bookList() {
+        return $this->hasMany('App\Models\BookList','userId','id');
+    }
 }

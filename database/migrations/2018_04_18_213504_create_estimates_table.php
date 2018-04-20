@@ -15,7 +15,7 @@ class CreateEstimatesTable extends Migration
     {
         Schema::create('estimates', function (Blueprint $table) {
             $table->increments('extimateId');
-            $table->integer('bookId');
+            $table->integer('bookId')->index();
             $table->string('bookName');
             $table->string('chapterName');
             $table->string('userName');
