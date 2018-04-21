@@ -10,12 +10,13 @@ use Illuminate\Http\Request;
 class BookListController extends Controller
 {
     //个人书架列表
-    public function index(User $user) {
-        $data = $user->bookList()->paginate(10);
-/*        $cover
-        $bookName
-        $authorName
-        $chapter*/
+    public function index($userId) {
+        $thisUser = User::find($userId);
+        $data = $thisUser->bookList;
+//        $cover = Book::select('cover')->where('bookId',$user->bookList->bookId);
+//        $bookName
+//        $authorName
+//        $chapter
 
 
 

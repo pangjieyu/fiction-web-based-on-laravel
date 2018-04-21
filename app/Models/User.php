@@ -53,7 +53,7 @@ class User extends Authenticatable
     }
 
     /**
-     * 绑定书
+     * 绑定
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function book() {

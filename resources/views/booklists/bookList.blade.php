@@ -125,28 +125,33 @@
             </div>
         </div>
         {{--add things--}}
-        <h2>我看过的</h2>
-        <div class="table-responsive">
-            <table class="table table-striped table-sm">
-                <thead>
-                <tr>
-                    <th>Cover</th>
-                    <th>BookName</th>
-                    <th>Author</th>
-                    <th>Chapter</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1,001</td>
-                    <td>Lorem</td>
-                    <td>ipsum</td>
-                    <td>dolor</td>
-                    <td>sit</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        @if(!count($data))
+            <h2>暂无数据</h2>
+        @else
+            <h2>我看过的</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                    <tr>
+                        <th>Cover</th>
+                        <th>BookName</th>
+                        <th>Author</th>
+                        <th>Chapter</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($data as $bookList)
+                        <tr>
+                            <td><img src="{{ $bookList->book->cover }}" width="100" height="100"></td>
+                            <td>{{ $bookList->book->title }}</td>
+                            <td>{{ $bookList->book->authorName }}</td>
+                            <td>{{ $bookList->chapterName() }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        @endif
 
     </main>
 </div>
