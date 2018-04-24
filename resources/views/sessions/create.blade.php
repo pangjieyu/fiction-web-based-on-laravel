@@ -74,7 +74,8 @@
         <div class="form-group">
             <button class="btn btn-primary btn-block" type="submit">Log In</button>
         </div>
-        <a href="{{ route('password.request') }}" class="forgot">Forgot your email or password?</a></form>
+        <a href="{{ route('password.request') }}" class="forgot">Forgot your email or password?</a>
+    </form>
 </div>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>

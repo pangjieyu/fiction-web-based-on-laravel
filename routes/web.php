@@ -30,3 +30,4 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 
 Route::get('users/{id}/bookList', 'BookListController@index')->name('book_list');
+Route::get('users/{id}/myBook','BookController@index')->name('my_book');
