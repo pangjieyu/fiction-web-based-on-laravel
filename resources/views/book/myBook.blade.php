@@ -149,6 +149,7 @@
                         </tr>
                     @endforeach
                     </tbody>
+                    {!! $data->render() !!}
                 </table>
             </div>
         @endif

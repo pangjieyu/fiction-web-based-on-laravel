@@ -14,8 +14,7 @@ class BookController extends Controller
      * 个人作品列表
      */
     public function index($userId) {
-        $thisUser = User::find($userId);
-        $data = $thisUser->book;
+        $data = (new \App\Models\Book())->where('authorId','=',$userId)->paginate(10);
         return view('book.myBook',compact('data'));
     }
 }

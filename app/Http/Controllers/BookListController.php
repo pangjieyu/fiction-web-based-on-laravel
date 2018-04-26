@@ -11,8 +11,8 @@ class BookListController extends Controller
 {
     //个人书架列表
     public function index($userId) {
-        $thisUser = User::find($userId);
-        $data = $thisUser->bookList;
+        $data = (new \App\Models\BookList)->where('userId','=',$userId)->paginate(10);
+//        $data = $thisUser->bookList->paginate(10);
 //        $cover = Book::select('cover')->where('bookId',$user->bookList->bookId);
 //        $bookName
 //        $authorName
