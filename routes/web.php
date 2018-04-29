@@ -31,3 +31,6 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 
 Route::get('users/{id}/bookList', 'BookListController@index')->name('book_list');
 Route::get('users/{id}/myBook','BookController@index')->name('my_book');
+
+Route::get('/novels/novel','BookContentController@show')->name('novel');
+Route::get('/book/allBook','BookController@allBook')->name('allBook');

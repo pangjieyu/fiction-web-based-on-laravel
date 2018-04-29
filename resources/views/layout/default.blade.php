@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
-<!-- saved from url=(0050)https://v4.bootcss.com/docs/4.0/examples/carousel/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -11,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    @yield('cssInclude')
 
     <!-- Custom styles for this template -->
     <link href="/css/carousel.css" rel="stylesheet">

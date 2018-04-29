@@ -10,7 +10,7 @@
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="{{route('allBook')}}">Books</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Contact</a>
@@ -18,7 +18,32 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::check())
-                    <li class="dropdown">
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{ Auth::user()->name }}</button>
+                        <ul class="dropdown-menu pull-left">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('users.show', Auth::user()->id) }}">个人中心</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('users.edit', Auth::user()->id) }}">编辑资料</a>
+                            </li>
+                            <div class="dropdown-divider"></div>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button class="btn btn-block btn-danger" type="submit" name="button">
+                                            退出
+                                        </button>
+                                    </form>
+                                </a>
+
+                            </li>
+
+                        </ul>
+                    </div>
+{{--                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-haspopup="true" aria-expanded="false">
                             {{ Auth::user()->name }}
@@ -40,7 +65,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li>--}}
                 @else
                     <li><a class="nav-link" href="{{ route('help') }}">帮助</a></li>
                     <li><a class="nav-link" href="{{ route('login') }}">登录</a></li>

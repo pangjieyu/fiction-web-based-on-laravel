@@ -17,4 +17,13 @@ class BookController extends Controller
         $data = (new \App\Models\Book())->where('authorId','=',$userId)->paginate(10);
         return view('book.myBook',compact('data'));
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function allBook() {
+        $books = Book::all();
+        return view('book.allBook',compact('books'));
+
+    }
 }

@@ -41,13 +41,13 @@
     <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">
-                <form action="{{ route('logout') }}" method="POST" id="logout">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
+            <form action="{{ route('logout') }}" method="POST" id="logout">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+                <a class="nav-link" href="#" onclick="logout.submit()">
                     Sign out
-                </form>
-            </a>
+                </a>
+            </form>
 
         </li>
     </ul>
