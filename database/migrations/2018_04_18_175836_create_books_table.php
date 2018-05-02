@@ -24,6 +24,7 @@ class CreateBooksTable extends Migration
             $table->string('authorName');
             $table->integer('authorId')->index();
             $table->boolean('audit')->default(true);
+            $table->integer('file_id');
 
             $table->timestamps();
         });

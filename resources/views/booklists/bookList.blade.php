@@ -136,7 +136,6 @@
                         <th>Cover</th>
                         <th>BookName</th>
                         <th>Author</th>
-                        <th>Chapter</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -145,7 +144,6 @@
                             <td><img src="{{ $bookList->book->cover }}" width="100" height="100"></td>
                             <td>{{ $bookList->book->title }}</td>
                             <td>{{ $bookList->book->authorName }}</td>
-                            <td>{{ $bookList->chapterName() }}</td>
                         </tr>
                     @endforeach
                     </tbody>

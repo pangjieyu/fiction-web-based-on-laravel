@@ -20,7 +20,7 @@
                 @if (Auth::check())
                     <div class="dropdown">
                         <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{ Auth::user()->name }}</button>
-                        <ul class="dropdown-menu pull-left">
+                        <ul class="dropdown-menu pull-left" style="right:0; left:auto;">
                             <li>
                                 <a class="dropdown-item" href="{{ route('users.show', Auth::user()->id) }}">个人中心</a>
                             </li>

@@ -26,7 +26,7 @@
                             <td>{{ $book->author->name }}</td>
                             <td>{{ $book->hits }}</td>
                             <td>
-                                <button type="button" class="btn btn-primary">收藏</button>
+                                <a role="button" class="btn btn-primary" href="{{ route('addBook',$book->bookId) }}">收藏</a>
                             </td>
                         </tr>
                     </tbody>

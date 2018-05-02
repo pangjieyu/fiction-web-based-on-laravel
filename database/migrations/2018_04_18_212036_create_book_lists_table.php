@@ -17,8 +17,8 @@ class CreateBookListsTable extends Migration
             $table->increments('id');
             $table->integer('userId')->index();
             $table->integer('bookId');
-            $table->datetime('lastReadTime');
-            $table->integer('lastReadChapterId');
+//            $table->datetime('lastReadTime');
+//            $table->integer('lastReadChapterId');
 
             $table->timestamps();
         });
