@@ -126,9 +126,15 @@
         </div>
         {{--add things--}}
         @if(count($data) === 0)
-            <h2>暂无数据</h2>
+            <div class="row">
+                <div class="col-md-8"><h2>您还没有作品哦</h2></div>
+                <div class="col-md-4"><a href="{{ route('newBook') }}" class="btn btn-primary" role="button">创作新书</a> </div>
+            </div>
         @else
-            <h2>我的作品</h2>
+            <div class="row">
+                <div class="col-md-8"><h2>我的作品</h2></div>
+                <div class="col-md-4"><a href="{{ route('newBook') }}" class="btn btn-primary" role="button">创作新书</a> </div>
+            </div>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>

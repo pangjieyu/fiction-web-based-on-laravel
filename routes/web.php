@@ -28,13 +28,17 @@ Route::get('password/reset','Auth\ForgotPasswordController@showLinkRequestForm')
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
-
+//书架（dashboard）
 Route::get('users/{id}/bookList', 'BookListController@index')->name('book_list');
-Route::get('#','BookListController@addItem')->name('addBook');
+Route::get('/book/allBook','BookListController@addItem')->name('addBook');
 
+//个人作品（dashboard）
 Route::get('users/{id}/myBook','BookController@index')->name('my_book');
-
+//文章页面
 Route::get('/novels/novel','BookContentController@show')->name('novel');
+//所有书列表
 Route::get('/book/allBook','BookController@allBook')->name('allBook');
-
+//书章节列表
 Route::get('book/{id}/chapterList','BookContentController@index')->name('chapterList');
+//添加新书
+Route::get('/book/newBook','BookController@newBook')->name('newBook');

@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\BookList;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class BookListController extends Controller
@@ -21,6 +22,7 @@ class BookListController extends Controller
         $bookList->bookId = $bookId;
         $bookList->save();
         session()->flash('SUCCESS!');
+        return \redirect('/book/allBook');
     }
 
     //删除条目
@@ -29,8 +31,8 @@ class BookListController extends Controller
     }
 
     //个人书架列表
-    public function index($userId) {
-        $data = (new \App\Models\BookList)->where('userId','=',$userId)->paginate(10);
+    public function index() {
+        $data = (new \App\Models\BookList)->where('userId','=',Auth::user()->id)->paginate(10);
 //        $data = $thisUser->bookList->paginate(10);
 //        $cover = Book::select('cover')->where('bookId',$user->bookList->bookId);
 //        $bookName

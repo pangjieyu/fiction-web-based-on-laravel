@@ -22,6 +22,9 @@ class Book extends Model
      *
      * 绑定
      */
+    public function file() {
+        return $this->belongsTo('App\Models\file');
+    }
     public function author() {
         return $this->belongsTo('App\Models\User','authorId','id')->withDefault([
             'name' => 'NoName'
