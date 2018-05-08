@@ -18,7 +18,7 @@ class CreateBooksTable extends Migration
             $table->string('title');
             $table->string('bookIntroduction');
             $table->integer('hits');
-            $table->integer('typeId');
+            $table->string('typeName');
             $table->boolean('bookType');
             $table->string('cover');
             $table->string('authorName');

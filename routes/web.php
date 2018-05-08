@@ -42,3 +42,4 @@ Route::get('/book/allBook','BookController@allBook')->name('allBook');
 Route::get('book/{id}/chapterList','BookContentController@index')->name('chapterList');
 //添加新书
 Route::get('/book/newBook','BookController@newBook')->name('newBook');
+Route::post('/book/save','BookController@add')->name('saveBook');
