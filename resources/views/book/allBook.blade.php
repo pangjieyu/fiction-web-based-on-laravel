@@ -19,16 +19,24 @@
                     </thead>
                     <tbody>
                     @foreach($books as $book)
-                        <tr>
-                            <td><img src="{{ $book->cover }}" width="100" height="100"></td>
-                            <td>{{ $book->title }}</td>
-                            <td>{{ $book->bookIntroduction }}</td>
-                            <td>{{ $book->author->name }}</td>
-                            <td>{{ $book->hits }}</td>
-                            <td>
-                                {{--<a role="button" class="btn btn-primary" href="{{ route('addBook',$book->bookId) }}">收藏</a>--}}
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>
+                                    <a href="/book/{{$book->bookId}}/chapterList">
+                                        <img src="{{ $book->cover }}" width="100" height="100">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/book/{{$book->bookId}}/chapterList">
+                                        {{ $book->title }}
+                                    </a>
+                                </td>
+                                <td>{{ $book->bookIntroduction }}</td>
+                                <td>{{ $book->author->name }}</td>
+                                <td>{{ $book->hits }}</td>
+                                <td>
+                                    {{--<a role="button" class="btn btn-primary" href="{{ route('addBook',$book->bookId) }}">收藏</a>--}}
+                                </td>
+                            </tr>
                     </tbody>
                     @endforeach
                 </table>

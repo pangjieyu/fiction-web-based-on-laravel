@@ -39,7 +39,7 @@ Route::get('/novels/novel','BookContentController@show')->name('novel');
 //所有书列表
 Route::get('/book/allBook','BookController@allBook')->name('allBook');
 //书章节列表
-Route::get('book/{id}/chapterList','BookContentController@index')->name('chapterList');
+Route::get('book/{bookId}/chapterList','BookContentController@index')->name('chapterList');
 //添加新书
 Route::get('/book/newBook','BookController@newBook')->name('newBook');
 Route::post('/book/save','BookController@add')->name('saveBook');

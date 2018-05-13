@@ -43,29 +43,6 @@
 
                         </ul>
                     </div>
-{{--                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-haspopup="true" aria-expanded="false">
-                            {{ Auth::user()->name }}
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ route('users.show', Auth::user()->id) }}">个人中心</a></li>
-                            <li><a href="{{ route('users.edit', Auth::user()->id) }}">编辑资料</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li role="separator" class="divider"></li>
-                            <li>
-                                <a id="logout" href="#">
-                                    <form action="{{ route('logout') }}" method="POST">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-                                        <button class="btn btn-block btn-danger" type="submit" name="button">
-                                            退出
-                                        </button>
-                                    </form>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>--}}
                 @else
                     <li><a class="nav-link" href="{{ route('help') }}">帮助</a></li>
                     <li><a class="nav-link" href="{{ route('login') }}">登录</a></li>

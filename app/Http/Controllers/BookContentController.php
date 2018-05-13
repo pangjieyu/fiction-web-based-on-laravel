@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\BookContent;
 use Illuminate\Http\Request;
 
@@ -10,11 +11,17 @@ class BookContentController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Book $book
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($bookId)
     {
         //
+        $book = Book::findOrFail($bookId);
+        $bookContent = $book->content;
+//        dd($book);
+//        dd($bookContent);
+        return view('book.bookContent',['bookContent'=>$bookContent,'book'=>$book]);
     }
 
     /**
