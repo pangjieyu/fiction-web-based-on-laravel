@@ -43,3 +43,5 @@ Route::get('book/{bookId}/chapterList','BookContentController@index')->name('cha
 //添加新书
 Route::get('/book/newBook','BookController@newBook')->name('newBook');
 Route::post('/book/save','BookController@add')->name('saveBook');
+//新章节
+Route::get('book/{bookId}/newChapter','BookContentController@create')->name('write');

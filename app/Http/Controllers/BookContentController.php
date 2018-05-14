@@ -32,6 +32,7 @@ class BookContentController extends Controller
     public function create()
     {
         //
+        return view('book.write');
     }
 
     /**
