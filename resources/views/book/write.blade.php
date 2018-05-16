@@ -12,26 +12,27 @@
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Custom styles for this template -->
+    <!-- Custom styles for this template -->
     <link href="/css/carousel.css" rel="stylesheet">
-    <script src="https://cdn.ckeditor.com/ckeditor5/10.0.0/decoupled-document/ckeditor.js"></script>
+    {{--<script src="https://cdn.ckeditor.com/ckeditor5/10.0.0/decoupled-document/ckeditor.js"></script>--}}
+    @include('vendor.ueditor.assets')
 </head>
 <body>
-<h1>Classic editor</h1>
-<textarea name="content" id="editor">
-    <p>This is some sample content.</p>
-</textarea>
-{{--<script>
-    ClassicEritor.create(document.querySelector('#editor'));
-</script>--}}
-
-{{--<script>
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .catch(error => {
-        console.error(error);
+<script type="text/javascript">
+    var ue = UE.getEditor('container');
+    ue.ready(function() {
+        ue.execCommand('serverparam', '_token', '{{ csrf_token() }}'); // 设置 CSRF token.
     });
-</script>--}}
+</script>
+@include('layout._header')
+
+<!-- 编辑器容器 -->
+<div class="row" style="padding-top: 10px; height: auto;">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <script id="container" name="content" type="text/plain"></script>
+    </div>
+</div>
 </body>
 </html>
 
