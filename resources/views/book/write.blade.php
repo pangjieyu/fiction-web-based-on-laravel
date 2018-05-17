@@ -27,12 +27,26 @@
 @include('layout._header')
 
 <!-- 编辑器容器 -->
-<div class="row" style="padding-top: 10px; height: auto;">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-        <script id="container" name="content" type="text/plain"></script>
+<form method="POST" action="{{ route('bookContent.store',$book->bookId) }}">
+    {{ csrf_field() }}
+
+    <div class="row" style="padding-top: 20px; height: auto;">
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <label for="chapterName">题目：</label>
+            <input name="chapterName" type="text">
+        </div>
+        <div class="col-md-1">
+            <button type="submit" class="btn btn-primary">提交章节</button>
+        </div>
     </div>
-</div>
+    <div class="row" style="padding-top: 10px; height: auto;">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <script id="container" name="chapterContent" type="text/plain"></script>
+        </div>
+    </div>
+</form>
 </body>
 </html>
 

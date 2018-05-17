@@ -45,3 +45,4 @@ Route::get('/book/newBook','BookController@newBook')->name('newBook');
 Route::post('/book/save','BookController@add')->name('saveBook');
 //新章节
 Route::get('book/{bookId}/newChapter','BookContentController@create')->name('write');
+Route::resource('book/{bookId}/bookContent','BookContentController');

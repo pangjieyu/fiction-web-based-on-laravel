@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\BookContent;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class BookContentController extends Controller
@@ -29,10 +30,12 @@ class BookContentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($bookId)
     {
         //
-        return view('book.write');
+        $book = Book::findOrFail($bookId);
+//        dd($book);
+        return view('book.write',['book'=>$book]);
     }
 
     /**
@@ -41,9 +44,18 @@ class BookContentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $bookId)
     {
-        //
+        //上传文章（富文本）
+//        dd($request);
+//        dd($bookId);
+        $bookContent = new BookContent();
+        $bookContent->chapterName = $request->chapterName;
+        $bookContent->bookId = $bookId;
+        $bookContent->chapterContent = $request->chapterContent;
+        $bookContent->lastAlterTime = Carbon::now();
+        $bookContent->save();
+        return redirect()->route('chapterList',$bookId);
     }
 
     /**
