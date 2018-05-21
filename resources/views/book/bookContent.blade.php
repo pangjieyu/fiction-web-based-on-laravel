@@ -24,7 +24,9 @@
                     @foreach($bookContent as $chapter)
                         <tr>
                             <td>
-                                {{$chapter->chapterName}}
+                                <a href="{{ route('novel',$chapter->chapterId) }}">
+                                    {{$chapter->chapterName}}
+                                </a>
                             </td>
                         </tr>
                     @endforeach

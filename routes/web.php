@@ -35,7 +35,7 @@ Route::get('/book/allBook','BookListController@addItem')->name('addBook');
 //个人作品（dashboard）
 Route::get('users/{id}/myBook','BookController@index')->name('my_book');
 //文章页面
-Route::get('/novels/novel','BookContentController@show')->name('novel');
+Route::get('/novels/novel/{chapterId}','BookContentController@show')->name('novel');
 //所有书列表
 Route::get('/book/allBook','BookController@allBook')->name('allBook');
 //书章节列表

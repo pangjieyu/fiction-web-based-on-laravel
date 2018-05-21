@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -83,5 +82,6 @@
 --}}
 
 <script src="/js/app.js"></script>
+@yield('jsInclude')
 </body>
 </html>

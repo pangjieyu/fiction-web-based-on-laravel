@@ -61,13 +61,17 @@ class BookContentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BookContent  $bookContent
+     * @param $chapterId
      * @return \Illuminate\Http\Response
      */
-    public function show(BookContent $bookContent)
+    public function show($chapterId)
     {
         //
-        return view(route('novel',compact('bookContent')));
+//        dd($chapterId);
+
+        $novel = BookContent::findOrFail($chapterId);
+//        dd($novel);
+        return view('novels.novel',['chapterId'=>$chapterId,'novel'=>$novel]);
     }
 
     /**

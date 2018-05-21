@@ -19,6 +19,9 @@ $base-z-index: 0;
 // Borders
 $base-border: 1px solid $base-border-color;
 
+//color
+$base-heading-font-color: #343a40;
+
 body {
 	@include font-feature-settings("kern","liga","frac", "pnum");
 	-webkit-font-smoothing: antialiased;
