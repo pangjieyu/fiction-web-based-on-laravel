@@ -103,8 +103,11 @@ class BookContentController extends Controller
      * @param  \App\Models\BookContent  $bookContent
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BookContent $bookContent)
+    public function destroy($bookId,$chapterId)
     {
         //
+        $bookcontent = BookContent::findOrFail($chapterId);
+        $bookcontent->delete();
+        return redirect()->back()->with('success','删除成功');
     }
 }

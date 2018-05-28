@@ -17,12 +17,14 @@ class BookListController extends Controller
     }
     //添加书架
     public function addItem($bookId) {
+//        dd($bookId);
         $bookList = new BookList();
         $bookList->userId = Auth::user()->id;
         $bookList->bookId = $bookId;
+//        dd($bookList);
+        
         $bookList->save();
-        session()->flash('SUCCESS!');
-        return \redirect('/book/allBook');
+        return redirect('/book/allBook')->with('success','已收藏');
     }
 
     //删除条目

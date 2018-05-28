@@ -44,7 +44,7 @@
                         </ul>
                     </div>
                 @else
-                    <li><a class="nav-link" href="{{ route('help') }}">帮助</a></li>
+                    <li><a class="nav-link" href="{{ route('signup') }}">注册</a></li>
                     <li><a class="nav-link" href="{{ route('login') }}">登录</a></li>
                 @endif
             </ul>

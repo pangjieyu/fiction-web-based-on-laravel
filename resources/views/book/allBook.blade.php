@@ -8,6 +8,11 @@
         <div class="jumbotron">
             <div class="table-responsive">
                 <table class="table table-hover table-sm">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <thead>
                     <tr>
                         <th>Cover</th>
@@ -34,7 +39,7 @@
                                 <td>{{ $book->author->name }}</td>
                                 <td>{{ $book->hits }}</td>
                                 <td>
-                                    {{--<a role="button" class="btn btn-primary" href="{{ route('addBook',$book->bookId) }}">收藏</a>--}}
+                                    <a role="button" class="btn btn-primary" href="{{ route('addBook',$book->bookId) }}">收藏</a>
                                 </td>
                             </tr>
                     </tbody>

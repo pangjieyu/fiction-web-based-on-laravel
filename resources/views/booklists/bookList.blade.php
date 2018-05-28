@@ -141,8 +141,16 @@
                     <tbody>
                     @foreach($data as $bookList)
                         <tr>
-                            <td><img src="{{ $bookList->book->cover }}" width="100" height="100"></td>
-                            <td>{{ $bookList->book->title }}</td>
+                            <td>
+                                <a href="/book/{{$bookList->book->bookId}}/chapterList">
+                                    <img src="{{ $bookList->book->cover }}" width="100" height="100">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/book/{{$bookList->book->bookId}}/chapterList">
+                                    {{ $bookList->book->title }}
+                                </a>
+                            </td>
                             <td>{{ $bookList->book->authorName }}</td>
                         </tr>
                     @endforeach
