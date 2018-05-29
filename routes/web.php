@@ -30,7 +30,7 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 //书架（dashboard）
 Route::get('users/{id}/bookList', 'BookListController@index')->name('book_list');
-Route::get('/book/allBook','BookListController@addItem')->name('addBook');
+Route::get('/book/allBook/addBook/{bookId}','BookListController@addItem')->name('addBook');
 
 //个人作品（dashboard）
 Route::get('users/{id}/myBook','BookController@index')->name('my_book');

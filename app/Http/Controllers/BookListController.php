@@ -16,6 +16,11 @@ class BookListController extends Controller
         $this->middleware('auth');
     }
     //添加书架
+
+    /**
+     * @param $bookId
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function addItem($bookId) {
 //        dd($bookId);
         $bookList = new BookList();
@@ -24,7 +29,8 @@ class BookListController extends Controller
 //        dd($bookList);
         
         $bookList->save();
-        return redirect('/book/allBook')->with('success','已收藏');
+//        return redirect(route('allBook'))->with('success','已收藏');
+        return redirect('/book/allBook');
     }
 
     //删除条目
