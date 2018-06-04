@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+{{--<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,6 +15,18 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/carousel.css" rel="stylesheet">
+</head>--}}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/Gumba/img/favicon.ico">
+    <link rel="stylesheet" href="/Gumba/css/vendor/fluidbox.min.css">
+    <link rel="stylesheet" href="/Gumba/css/main.css">
+
+    <title>@yield('title', 'HOME')-PFICTION</title>
+
 </head>
 <body>
 {{--<header>
@@ -81,7 +93,27 @@
 </div>
 --}}
 
-<script src="/js/app.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.0.min.js"></script>
+<script>
+    if (!window.jQuery)
+    {
+        document.write('<script src="/Gumba/js/vendor/jquery.1.11.min.js"><\/script>');
+    }
+</script>
+
+<script src="/Gumba/js/vendor/jquery.fluidbox.min.js"></script>
+<script src="/Gumba/js/main.js"></script>
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'YOUR_GOOGLE_ANALYTICS_ID', 'auto');
+    ga('send', 'pageview');
+
+</script>
 @yield('jsInclude')
 </body>
 </html>

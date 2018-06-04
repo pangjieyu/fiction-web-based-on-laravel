@@ -23,19 +23,29 @@ class BookListController extends Controller
      */
     public function addItem($bookId) {
 //        dd($bookId);
-        $bookList = new BookList();
-        $bookList->userId = Auth::user()->id;
-        $bookList->bookId = $bookId;
+        $book = Book::findOrFail($bookId);
+        if(count(BookList::all()->where('bookId',$bookId)) == 0) {
+            $bookList = new BookList();
+            $bookList->userId = Auth::user()->id;
+            $bookList->bookId = $bookId;
+            $book->hits += 1;
+            $book->save();
 //        dd($bookList);
-        
-        $bookList->save();
+
+            $bookList->save();
+        }
 //        return redirect(route('allBook'))->with('success','已收藏');
-        return redirect('/book/allBook');
+        return redirect('/book/allBook')->with('success','已收藏');
     }
 
     //删除条目
     public function rmItem($id) {
+        $book = BookList::findOrFail($id)->book;
+//        dd($book);
+        $book->hits -= 1;
+        $book->save();
         BookList::destroy($id);
+        return \redirect()->back();
     }
 
     //个人书架列表

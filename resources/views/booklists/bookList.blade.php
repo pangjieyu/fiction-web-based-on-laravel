@@ -152,6 +152,13 @@
                                 </a>
                             </td>
                             <td>{{ $bookList->book->authorName }}</td>
+                            <td>
+                                <form action="{{ route('rmBook',$bookList->id)}}" method="post">
+                                    {{csrf_field()}}
+                                    {{method_field('DELETE')}}
+                                    <button type="submit" class="btn btn-sm btn-danger delete-btn" style="float: right;">删除</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

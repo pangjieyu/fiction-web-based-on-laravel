@@ -141,6 +141,7 @@ header {
 			letter-spacing: -0.05em;
 			margin-top: 1.2em;
 			margin-bottom: 1em;
+			color: #666666;
 
 			@include media($mobile) {
 				font-size: 4em;

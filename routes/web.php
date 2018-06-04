@@ -31,6 +31,7 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 //书架（dashboard）
 Route::get('users/{id}/bookList', 'BookListController@index')->name('book_list');
 Route::get('/book/allBook/addBook/{bookId}','BookListController@addItem')->name('addBook');
+Route::delete('/book/bookList/{id}/delete','BookListController@rmItem')->name('rmBook');
 
 //个人作品（dashboard）
 Route::get('users/{id}/myBook','BookController@index')->name('my_book');
