@@ -24,6 +24,7 @@
     <link rel="shortcut icon" href="/Gumba/img/favicon.ico">
     <link rel="stylesheet" href="/Gumba/css/vendor/fluidbox.min.css">
     <link rel="stylesheet" href="/Gumba/css/main.css">
+    <link href="/css/bootstrap.min.css" rel="stylesheet" title="bootstrap">
 
     <title>@yield('title', 'HOME')-PFICTION</title>
 
