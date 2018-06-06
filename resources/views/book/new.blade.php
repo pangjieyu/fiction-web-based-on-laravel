@@ -21,7 +21,7 @@
                     <div class="form-group row">
                         <label for="introduction" class="col-sm-2 form-control-label">简要介绍：</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="introduction" name="introduction" rows="3"></textarea>
+                            <textarea class="form-control" id="introduction" name="introduction" rows="3">不能为空哦！</textarea>
                         </div>
                     </div>
                     <div class="form-group row">

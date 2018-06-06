@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BookList;
 use App\Models\File;
 use App\Models\Type;
 use App\Models\User;
@@ -43,6 +44,14 @@ class BookController extends Controller
                 $content->delete();
             }
         }
+        $booklist = BookList::all()->where('bookId','=',$bookId);
+//        dd($booklist);
+        if(count($booklist)!=0) {
+            foreach ($booklist as $content) {
+                $content->delete();
+            }
+        }
+
         Book::destroy($bookId);
         session()->flash('删除成功');
         return redirect()->back();

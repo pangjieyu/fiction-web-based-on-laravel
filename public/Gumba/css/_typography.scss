@@ -21,6 +21,8 @@ $base-border: 1px solid $base-border-color;
 
 //color
 $base-heading-font-color: #343a40;
+$base-font-color: #243236;
+$base-font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
 
 body {
 	@include font-feature-settings("kern","liga","frac", "pnum");
