@@ -4,12 +4,12 @@
 @section('content')
     @include('layout._header')
     <div id="content">
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <section class="row">
-            @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
             <div class="col">
                 <h2>封面</h2>
             </div>
@@ -68,6 +68,7 @@
         <section class="row">
             <div class="col-full"></div>
         </section>
+        @include('layout._footer')
 
     </div>
     {{--    <div id="content">

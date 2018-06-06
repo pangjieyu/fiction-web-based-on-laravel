@@ -51,6 +51,7 @@
             </div>
         </div>
         <hr class="featurette-divider">
+        @include('layout._footer')
     </div>
 @stop
 

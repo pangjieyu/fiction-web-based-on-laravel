@@ -26,6 +26,9 @@
 @include('layout._header')
 
 <div id="content">
+    <section class="row">
+        <div class="col-full"></div>
+    </section>
     <!-- 编辑器容器 -->
     <form method="POST" action="{{ route('bookContent.store',$book->bookId) }}">
         {{ csrf_field() }}
@@ -37,7 +40,7 @@
                 <input name="chapterName" type="text">
             </div>
             <div class="col-md-1">
-                <button type="submit" class="btn btn-primary">提交章节</button>
+                <button type="submit" class="btn btn-danger">提交章节</button>
             </div>
         </div>
         <div class="row" style="padding-top: 10px; height: auto;">
@@ -47,6 +50,8 @@
             </div>
         </div>
     </form>
+
+    @include('layout._footer')
 </div>
 </body>
 </html>

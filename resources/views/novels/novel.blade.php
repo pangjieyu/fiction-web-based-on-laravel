@@ -92,6 +92,7 @@
         <div class="col-full">
         </div>
     </section>
+    @include('layout._footer')
 
 </div>
 

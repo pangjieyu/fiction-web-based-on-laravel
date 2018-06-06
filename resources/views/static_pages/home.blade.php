@@ -60,15 +60,7 @@
                 </p>
             </div>
         </section>
-
-
-        <section class="row">
-            <div class="col-full">
-                <p>
-                    © 2015 - This is a free website template by <a href="http://www.pixelsbyrick.com">Rick Waalders</a>
-                </p>
-            </div>
-        </section>
+        @include('layout._footer')
 
     </div>
 {{--    <main role="main">
