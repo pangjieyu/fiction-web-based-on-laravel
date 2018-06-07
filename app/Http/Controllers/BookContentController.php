@@ -70,8 +70,11 @@ class BookContentController extends Controller
 //        dd($chapterId);
 
         $novel = BookContent::findOrFail($chapterId);
-//        dd($novel);
-        return view('novels.novel',['chapterId'=>$chapterId,'novel'=>$novel]);
+        $next = BookContent::all()->where('bookId','=',$novel->bookId)->where('chapterId','>',$novel->chapterId)->first();
+        $last = BookContent::all()->where('bookId','=',$novel->bookId)->where('chapterId','<',$novel->chapterId)->last();
+
+//        dd($next);
+        return view('novels.novel',['chapterId'=>$chapterId,'novel'=>$novel,'next'=>$next, 'last'=>$last]);
     }
 
     /**

@@ -75,15 +75,27 @@
     <section class="row">
         <div class="col">
             <h2>上一章节</h2>
-            <p>
-                <a href="#">test</a>
-            </p>
+            @if(count($last)!=0)
+                <p>
+                    <a href="{{ route('novel',$last->chapterId) }}">{{ $last->chapterName }}</a>
+                </p>
+            @else
+                <p>
+                    当前就是第一章
+                </p>
+            @endif
         </div>
         <div class="col">
             <h2>下一章节</h2>
-            <p>
-                <a href="#">test</a>
-            </p>
+            @if(count($next)!=0)
+                <p>
+                    <a href="{{ route('novel',$next->chapterId) }}">{{ $next->chapterName }}</a>
+                </p>
+            @else
+                <p>
+                    后面没有了哦
+                </p>
+            @endif
         </div>
     </section>
 
