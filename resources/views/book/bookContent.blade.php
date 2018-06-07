@@ -46,6 +46,10 @@
                             {{method_field('DELETE')}}
                             <button type="submit" class="btn btn-sm btn-danger delete-btn" style="float: right;">删除</button>
                         </form>
+{{--                        <form action="{{ route('bookContent.edit',['bookId'=>$book->bookId,'chapterId'=>$chapter->chapterId]) }}" method="GET">
+                            <button type="submit" class="btn btn-sm btn-primary" style="float: right;">编辑</button>
+                        </form>--}}
+                        <a href="{{ route('bookContent.edit',['bookId'=>$book->bookId,'chapterId'=>$chapter->chapterId]) }}">编辑</a>
                     </div>
                 @endif
             </section>

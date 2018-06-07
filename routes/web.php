@@ -46,6 +46,7 @@ Route::get('/book/newBook','BookController@newBook')->name('newBook');
 Route::post('/book/save','BookController@add')->name('saveBook');
 //新章节
 Route::get('book/{bookId}/newChapter','BookContentController@create')->name('write');
+Route::patch('book/{bookId}/editChapter/{chapterId}', 'BookContentController@update')->name('editChapter');
 Route::resource('book/{bookId}/bookContent','BookContentController');
 //删除书
 Route::delete('book/{bookId}/delete','BookController@destroy')->name('destroyBook');

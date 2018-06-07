@@ -80,9 +80,11 @@ class BookContentController extends Controller
      * @param  \App\Models\BookContent  $bookContent
      * @return \Illuminate\Http\Response
      */
-    public function edit(BookContent $bookContent)
+    public function edit($bookId ,$chapterId)
     {
         //
+        $novel = BookContent::findOrFail($chapterId);
+        return view('book.edit',['bookId'=>$bookId,'novel'=>$novel]);
     }
 
     /**
@@ -92,9 +94,17 @@ class BookContentController extends Controller
      * @param  \App\Models\BookContent  $bookContent
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BookContent $bookContent)
+    public function update(Request $request, $bookId, $chapterId)
     {
         //
+
+//        dd($request);
+        $data = [];
+        $novel = BookContent::findOrfail($chapterId);
+        $data['chapterName'] = $request->chapterName;
+        $data['chapterContent'] = $request->chapterContent;
+        $novel->update($data);
+        return redirect(route('novel',$novel->chapterId));
     }
 
     /**
