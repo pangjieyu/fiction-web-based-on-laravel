@@ -1,5 +1,14 @@
 @extends('layout.default')
-
+@section('link')
+    <link rel="stylesheet" href="/searchStyle/style.css">
+    <link rel="stylesheet" href="/searchStyle/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style type="text/css">
+        body {
+            background-color: #f9f0da;
+        }
+    </style>
+@stop
 {{--@section('content')
     <div class="jumbotron">
         <h1>P-FICTION</h1>
@@ -19,31 +28,24 @@
     <div id="content">
 
         <section class="intro">
-            <h1>Hello, <span class="nl"></span>we are here to help you.</h1>
-            <p>
-                Gumba is a simple single-page website template. This is the place where you would normally introduce yourself. You can easily change the template to fit your needs by changing the text, photos and styles.
-            </p>
+            <h1></h1>
+            <div class="search d3">
+                <form>
+                    <input type="text" placeholder="搜索从这里开始...">
+                    <button type="submit"></button>
+                </form>
+            </div>
         </section>
 
-        <section class="row">
+{{--        <section class="row">
             <div class="col-full">
                 <h2>Example title</h2>
                 <p>
                     Gumba is a fictional agency from Amsterdam, The Netherlands. This is the place where you would normally introduce yourself. You can easily change the template to fit your needs by adding text or changing the colors and styles.
                 </p>
             </div>
-        </section>
+        </section>--}}
 
-        <section class="row">
-            <div class="col-full">
-                <p>
-                    Gumba is a fictional agency from Amsterdam, The Netherlands. This is the place where you would normally introduce yourself. You can easily change the template to fit your needs by adding text or changing the colors and styles.
-                </p>
-{{--                <a href="img/example-photo-b.jpg" rel="lightbox" class="col-2"><img src="img/example-photo-b.jpg" alt="Example photo"></a>
-                <a href="img/example-photo-c.jpg" rel="lightbox" class="col-2"><img src="img/example-photo-c.jpg" alt="Example photo"></a>
-                <a href="img/example-photo-a.jpg" rel="lightbox" class="col-1"><img src="img/example-photo-a.jpg" alt="Example photo"></a>--}}
-            </div>
-        </section>
 
 
         <section class="row">
