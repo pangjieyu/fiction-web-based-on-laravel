@@ -37,6 +37,11 @@ class BookController extends Controller
         return view('book.allBook',compact('books'));
 
     }
+    public function find(Request $request) {
+        $books = Book::where('title','like',"%$request->bookName%")->get();
+        return view('book.allBook',compact('books'));
+
+    }
     public function destroy($bookId) {
         $bookContent = Book::findOrFail($bookId)->content();
         if(count($bookContent)!=0) {

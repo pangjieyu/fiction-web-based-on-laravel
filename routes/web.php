@@ -50,3 +50,5 @@ Route::patch('book/{bookId}/editChapter/{chapterId}', 'BookContentController@upd
 Route::resource('book/{bookId}/bookContent','BookContentController');
 //删除书
 Route::delete('book/{bookId}/delete','BookController@destroy')->name('destroyBook');
+//查找书
+Route::post('book/search', 'BookController@find')->name('find');

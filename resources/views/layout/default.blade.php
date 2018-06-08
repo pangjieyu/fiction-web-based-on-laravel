@@ -30,7 +30,7 @@
     <title>@yield('title', 'HOME')-PFICTION</title>
 
 </head>
-<body>
+<body style="background-color: #f9f0da;">
 {{--<header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="/">P-FICTION</a>

@@ -29,9 +29,13 @@
 
         <section class="intro">
             <h1></h1>
+            <p style="text-align: center">
+                搜寻你想要的。。。
+            </p>
             <div class="search d3">
-                <form>
-                    <input type="text" placeholder="搜索从这里开始...">
+                <form action="{{route('find')}}" method="post">
+                    {{ csrf_field() }}
+                    <input type="text" placeholder="搜索从这里开始..." name="bookName">
                     <button type="submit"></button>
                 </form>
             </div>
@@ -52,13 +56,7 @@
             <div class="col">
                 <h2>Contact</h2>
                 <p>
-                    Want to work with us? Just send us an <a href="mailto:#">email</a>.
-                </p>
-            </div>
-            <div class="col">
-                <h2>Follow us</h2>
-                <p>
-                    We are on <a href="http://twitter.com/rickwaalders">Twitter</a>, <a href="http://dribbble.com/rickwaalders">Dribbble</a> and <a href="http://instagram.com/rickwaalders">Instagram</a>.
+                    You can send me an email to pang.jie.yu@outlook.com
                 </p>
             </div>
         </section>
