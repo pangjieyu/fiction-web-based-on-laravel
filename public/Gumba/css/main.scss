@@ -141,6 +141,7 @@ header {
 			letter-spacing: -0.05em;
 			margin-top: 1.2em;
 			margin-bottom: 1em;
+			color: #666666;
 
 			@include media($mobile) {
 				font-size: 4em;
@@ -171,6 +172,13 @@ header {
 		padding-bottom: 5em;
 
 		h2 {
+			text-transform: uppercase;
+			font-size: 1.0em;
+			font-weight: bold;
+			color: $base-accent-color;
+			margin-bottom: 0.05em;
+		}
+		h5 {
 			text-transform: uppercase;
 			font-size: 1.0em;
 			font-weight: bold;

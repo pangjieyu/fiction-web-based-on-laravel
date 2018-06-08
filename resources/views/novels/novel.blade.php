@@ -1,4 +1,20 @@
-<!doctype html>
+{{--
+@extends('layout.default')
+@section('title', 'novel')
+@section('content')
+    @include('layout._header')
+--}}
+{{--    <main role="main" class="container">
+        <div class="jumbotron">
+            <h1> {{ $novel->chapterName }} </h1>
+            {!! $novel-> chapterContent !!}
+        </div>
+    </main>--}}{{--
+
+
+@stop--}}
+
+        <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -9,7 +25,7 @@
     <link rel="stylesheet" href="/Gumba/css/vendor/fluidbox.min.css">
     <link rel="stylesheet" href="/Gumba/css/main.css">
 
-    <title>Gumba Template</title>
+    <title>{{ $novel->chapterName }}</title>
 
 </head>
 <body>
@@ -18,37 +34,34 @@
 <header>
 
     <div id="logo-container">
-        <div id="logo"><a href="/">Gumba</a></div>
-        <div id="subtitle">A design agency from Amsterdam</div>
+        <div id="logo"><a href="/">P-FICTION</a></div>
     </div>
-    <!-- 		<nav>
+     		<nav style="width: 98%;">
                 <ul>
-                    <li><a href="#">Link 1</a></li>
-                    <li><a href="#">Link 2</a></li>
-                    <li><a href="#">Link 3</a></li>
-                    <li><a href="mailto:your@address.com" class="bordered">Contact</a></li>
+                    <li><a href="/">主页</a></li>
+                    <li><a href="{{route('allBook')}}">所有书籍</a></li>
+                    <li><a href="/book/{{$novel->book->bookId}}/chapterList">章节目录</a></li>
+                    <li><a href="{{ route('users.show',Auth::user()->id) }}" class="bordered">个人中心</a></li>
                 </ul>
-            </nav> -->
+            </nav>
 
 </header>
 
 <div id="content">
 
     <section class="intro">
-        <h1>Hello, <span class="nl"></span>we are here to help you.</h1>
-        <p>
-            Gumba is a simple single-page website template. This is the place where you would normally introduce yourself. You can easily change the template to fit your needs by changing the text, photos and styles.
-        </p>
+        <h1 style="color: #e85151;">{{ $novel->chapterName }}<span class="nl"></span></h1>
+        {!! $novel->chapterContent !!}
     </section>
 
-    <section class="row">
+{{--    <section class="row">
         <div class="col-full">
             <h2>Example title</h2>
             <p>
                 Gumba is a fictional agency from Amsterdam, The Netherlands. This is the place where you would normally introduce yourself. You can easily change the template to fit your needs by adding text or changing the colors and styles.
             </p>
         </div>
-    </section>
+    </section>--}}
 
     <!--<section class="row">
         <div class="photo-grid">
@@ -61,40 +74,50 @@
 
     <section class="row">
         <div class="col">
-            <h2>Contact</h2>
-            <p>
-                Want to work with us? Just send us an <a href="mailto:#">email</a>.
-            </p>
+            <h2>上一章节</h2>
+            @if(count($last)!=0)
+                <p>
+                    <a href="{{ route('novel',$last->chapterId) }}">{{ $last->chapterName }}</a>
+                </p>
+            @else
+                <p>
+                    当前就是第一章
+                </p>
+            @endif
         </div>
         <div class="col">
-            <h2>Follow us</h2>
-            <p>
-                We are on <a href="http://twitter.com/rickwaalders">Twitter</a>, <a href="http://dribbble.com/rickwaalders">Dribbble</a> and <a href="http://instagram.com/rickwaalders">Instagram</a>.
-            </p>
+            <h2>下一章节</h2>
+            @if(count($next)!=0)
+                <p>
+                    <a href="{{ route('novel',$next->chapterId) }}">{{ $next->chapterName }}</a>
+                </p>
+            @else
+                <p>
+                    后面没有了哦
+                </p>
+            @endif
         </div>
     </section>
 
 
     <section class="row">
         <div class="col-full">
-            <p>
-                © 2015 - This is a free website template by <a href="http://www.pixelsbyrick.com">Rick Waalders</a>
-            </p>
         </div>
     </section>
+    @include('layout._footer')
 
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.0.min.js"></script>
 <script>
     if (!window.jQuery)
     {
-        document.write('<script src="js/vendor/jquery.1.11.min.js"><\/script>');
+        document.write('<script src="/Gumba/js/vendor/jquery.1.11.min.js"><\/script>');
     }
 </script>
 
-<script src="js/vendor/jquery.fluidbox.min.js"></script>
-<script src="js/main.js"></script>
+<script src="/Gumba/js/vendor/jquery.fluidbox.min.js"></script>
+<script src="/Gumba/js/main.js"></script>
 
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

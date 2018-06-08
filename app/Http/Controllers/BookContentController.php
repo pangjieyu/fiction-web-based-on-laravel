@@ -61,13 +61,20 @@ class BookContentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BookContent  $bookContent
+     * @param $chapterId
      * @return \Illuminate\Http\Response
      */
-    public function show(BookContent $bookContent)
+    public function show($chapterId)
     {
         //
-        return view(route('novel',compact('bookContent')));
+//        dd($chapterId);
+
+        $novel = BookContent::findOrFail($chapterId);
+        $next = BookContent::all()->where('bookId','=',$novel->bookId)->where('chapterId','>',$novel->chapterId)->first();
+        $last = BookContent::all()->where('bookId','=',$novel->bookId)->where('chapterId','<',$novel->chapterId)->last();
+
+//        dd($next);
+        return view('novels.novel',['chapterId'=>$chapterId,'novel'=>$novel,'next'=>$next, 'last'=>$last]);
     }
 
     /**
@@ -76,9 +83,11 @@ class BookContentController extends Controller
      * @param  \App\Models\BookContent  $bookContent
      * @return \Illuminate\Http\Response
      */
-    public function edit(BookContent $bookContent)
+    public function edit($bookId ,$chapterId)
     {
         //
+        $novel = BookContent::findOrFail($chapterId);
+        return view('book.edit',['bookId'=>$bookId,'novel'=>$novel]);
     }
 
     /**
@@ -88,9 +97,17 @@ class BookContentController extends Controller
      * @param  \App\Models\BookContent  $bookContent
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BookContent $bookContent)
+    public function update(Request $request, $bookId, $chapterId)
     {
         //
+
+//        dd($request);
+        $data = [];
+        $novel = BookContent::findOrfail($chapterId);
+        $data['chapterName'] = $request->chapterName;
+        $data['chapterContent'] = $request->chapterContent;
+        $novel->update($data);
+        return redirect(route('novel',$novel->chapterId));
     }
 
     /**
@@ -99,8 +116,11 @@ class BookContentController extends Controller
      * @param  \App\Models\BookContent  $bookContent
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BookContent $bookContent)
+    public function destroy($bookId,$chapterId)
     {
         //
+        $bookcontent = BookContent::findOrFail($chapterId);
+        $bookcontent->delete();
+        return redirect()->back()->with('success','删除成功');
     }
 }

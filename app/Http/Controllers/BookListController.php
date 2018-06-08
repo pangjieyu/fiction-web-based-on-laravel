@@ -16,18 +16,36 @@ class BookListController extends Controller
         $this->middleware('auth');
     }
     //添加书架
+
+    /**
+     * @param $bookId
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function addItem($bookId) {
-        $bookList = new BookList();
-        $bookList->userId = Auth::user()->id;
-        $bookList->bookId = $bookId;
-        $bookList->save();
-        session()->flash('SUCCESS!');
-        return \redirect('/book/allBook');
+//        dd($bookId);
+        $book = Book::findOrFail($bookId);
+        if(count(BookList::all()->where('bookId',$bookId)) == 0) {
+            $bookList = new BookList();
+            $bookList->userId = Auth::user()->id;
+            $bookList->bookId = $bookId;
+            $book->hits += 1;
+            $book->save();
+//        dd($bookList);
+
+            $bookList->save();
+        }
+//        return redirect(route('allBook'))->with('success','已收藏');
+        return redirect('/book/allBook')->with('success','已收藏');
     }
 
     //删除条目
     public function rmItem($id) {
+        $book = BookList::findOrFail($id)->book;
+//        dd($book);
+        $book->hits -= 1;
+        $book->save();
         BookList::destroy($id);
+        return \redirect()->back();
     }
 
     //个人书架列表

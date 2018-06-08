@@ -30,12 +30,13 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 //书架（dashboard）
 Route::get('users/{id}/bookList', 'BookListController@index')->name('book_list');
-Route::get('/book/allBook','BookListController@addItem')->name('addBook');
+Route::get('/book/allBook/addBook/{bookId}','BookListController@addItem')->name('addBook');
+Route::delete('/book/bookList/{id}/delete','BookListController@rmItem')->name('rmBook');
 
 //个人作品（dashboard）
 Route::get('users/{id}/myBook','BookController@index')->name('my_book');
 //文章页面
-Route::get('/novels/novel','BookContentController@show')->name('novel');
+Route::get('/novels/novel/{chapterId}','BookContentController@show')->name('novel');
 //所有书列表
 Route::get('/book/allBook','BookController@allBook')->name('allBook');
 //书章节列表
@@ -45,4 +46,9 @@ Route::get('/book/newBook','BookController@newBook')->name('newBook');
 Route::post('/book/save','BookController@add')->name('saveBook');
 //新章节
 Route::get('book/{bookId}/newChapter','BookContentController@create')->name('write');
+Route::patch('book/{bookId}/editChapter/{chapterId}', 'BookContentController@update')->name('editChapter');
 Route::resource('book/{bookId}/bookContent','BookContentController');
+//删除书
+Route::delete('book/{bookId}/delete','BookController@destroy')->name('destroyBook');
+//查找书
+Route::post('book/search', 'BookController@find')->name('find');

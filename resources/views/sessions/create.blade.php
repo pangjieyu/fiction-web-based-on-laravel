@@ -68,9 +68,6 @@
         <div class="form-group">
             <input class="form-control" type="password" name="password" placeholder="Password">
         </div>
-        <div class="checkbox">
-            <label><input type="checkbox" name="remember"> 记住我</label>
-        </div>
         <div class="form-group">
             <button class="btn btn-primary btn-block" type="submit">Log In</button>
         </div>

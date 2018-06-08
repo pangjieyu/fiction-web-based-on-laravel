@@ -1,5 +1,5 @@
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+{{--<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="width: 100%">
         <a class="navbar-brand" href="/">P-FICTION</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -44,10 +44,29 @@
                         </ul>
                     </div>
                 @else
-                    <li><a class="nav-link" href="{{ route('help') }}">帮助</a></li>
+                    <li><a class="nav-link" href="{{ route('signup') }}">注册</a></li>
                     <li><a class="nav-link" href="{{ route('login') }}">登录</a></li>
                 @endif
             </ul>
         </div>
     </nav>
+</header>--}}
+<header>
+
+    <div id="logo-container">
+        <div id="logo"><a href="/">P-FICTION</a></div>
+    </div>
+    <nav style="width: 98%;">
+        <ul>
+            @if (Auth::check())
+                <li><a href="/">主页</a></li>
+                <li><a href="{{route('allBook')}}">所有书籍</a></li>
+                <li><a href="{{ route('users.show',Auth::user()->id) }}" class="bordered">个人中心</a></li>
+            @else
+                <li><a href="{{ route('signup') }}">注册</a></li>
+                <li><a href="{{ route('login') }}">登录</a></li>
+            @endif
+        </ul>
+    </nav>
+
 </header>

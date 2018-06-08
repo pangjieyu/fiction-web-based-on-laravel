@@ -38,7 +38,10 @@
 <body>
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">P-Fiction</a>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <form style="margin-bottom: auto; width: 100%;" action="{{route('find')}}" method="post">
+        {{ csrf_field() }}
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" name="bookName">
+    </form>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
             <form action="{{ route('logout') }}" method="POST" id="logout">
@@ -141,9 +144,24 @@
                     <tbody>
                     @foreach($data as $bookList)
                         <tr>
-                            <td><img src="{{ $bookList->book->cover }}" width="100" height="100"></td>
-                            <td>{{ $bookList->book->title }}</td>
+                            <td>
+                                <a href="/book/{{$bookList->book->bookId}}/chapterList">
+                                    <img src="{{ $bookList->book->cover }}" width="100" height="100">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/book/{{$bookList->book->bookId}}/chapterList">
+                                    {{ $bookList->book->title }}
+                                </a>
+                            </td>
                             <td>{{ $bookList->book->authorName }}</td>
+                            <td>
+                                <form action="{{ route('rmBook',$bookList->id)}}" method="post">
+                                    {{csrf_field()}}
+                                    {{method_field('DELETE')}}
+                                    <button type="submit" class="btn btn-sm btn-danger delete-btn" style="float: right;">删除</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
