@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\User;
 use App\Policies\UserPolicy;
 use Illuminate\Http\Request;
@@ -143,6 +144,13 @@ class UsersController extends Controller
     {
         //
         $this->authorize('destroy',$user);
+        $books = Book::where('authorId','=',$user->id)->get();
+//        dd($books);
+        if(count($books)!=0) {
+            foreach ($books as $book) {
+                BookController::del($book->bookId);
+            }
+        }
         $user->delete();
         session()->flash('success','成功删除用户');
         return back();

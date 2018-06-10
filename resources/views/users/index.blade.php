@@ -1,14 +1,24 @@
 @extends('layout.default')
-@section('title', '所有用户')
+@section('title', 'Books')
 
 @section('content')
-    <div class="col-md-offset-2 col-md-8">
-        <h1>所有用户</h1>
-        <ul class="media-list">
+    @include('layout._header')
+    <div id="content">
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
             @foreach ($users as $user)
-                @include('users._user')
+                <section class="row">
+                    @include('users._user')
+                </section>
             @endforeach
-        </ul>
-        {!! $users->render() !!}
+            {!! $users->render() !!}
+        <section class="row">
+            <div class="col-full"></div>
+        </section>
+        @include('layout._footer')
+
     </div>
 @stop

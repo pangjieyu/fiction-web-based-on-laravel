@@ -45,7 +45,7 @@ class BookController extends Controller
         return view('book.allBook',compact('books'));
 
     }
-    public function destroy($bookId) {
+    public static function del($bookId) {
         $bookContent = Book::findOrFail($bookId)->content();
         if(count($bookContent)!=0) {
             foreach ($bookContent as $content) {
@@ -61,6 +61,10 @@ class BookController extends Controller
         }
 
         Book::destroy($bookId);
+    }
+    public function destroy($bookId) {
+        BookController::del($bookId);
+
         session()->flash('删除成功');
         return redirect()->back();
 }
