@@ -63,6 +63,7 @@
                 <li><a href="{{route('allBook')}}">所有书籍</a></li>
                 <li><a href="{{ route('users.show',Auth::user()->id) }}" class="bordered">个人中心</a></li>
             @else
+                <li><a href="{{route('allBook')}}">所有书籍</a></li>
                 <li><a href="{{ route('signup') }}">注册</a></li>
                 <li><a href="{{ route('login') }}">登录</a></li>
             @endif

@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
-    public function __construct()
+/*    public function __construct()
     {
         $this->middleware('auth');
-    }
+    }*/
 
     /**
      * @param $userId
@@ -25,6 +25,9 @@ class BookController extends Controller
      * 个人作品列表
      */
     public function index(User $user) {
+        if(Auth::check() == false){
+            return redirect(route('login'));
+        }
         $data = (new \App\Models\Book())->where('authorId','=',Auth::user()->id)->paginate(10);
         return view('book.myBook',compact('data'));
     }
