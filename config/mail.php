@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => 'pang.jie.yu@163.com',
-        'name' => 'pangjieyu'
+        'address' => env('MAIL_FROM_ADDRESS', env('MAIL_USERNAME')),
+        'name' => env('MAIL_FROM_NAME', 'P-FICTION'),
     ],
 
     /*
