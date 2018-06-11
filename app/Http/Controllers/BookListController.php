@@ -24,7 +24,7 @@ class BookListController extends Controller
     public function addItem($bookId) {
 //        dd($bookId);
         $book = Book::findOrFail($bookId);
-        if(count(BookList::all()->where('bookId',$bookId)) == 0) {
+        if(count(BookList::all()->where('bookId','=',$bookId)->where('userId','=',Auth::user()->id)->get()) == 0) {
             $bookList = new BookList();
             $bookList->userId = Auth::user()->id;
             $bookList->bookId = $bookId;
