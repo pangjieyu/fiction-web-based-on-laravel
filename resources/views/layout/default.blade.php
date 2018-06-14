@@ -24,13 +24,13 @@
     <link rel="shortcut icon" href="/Gumba/img/favicon.ico">
     <link rel="stylesheet" href="/Gumba/css/vendor/fluidbox.min.css">
     <link rel="stylesheet" href="/Gumba/css/main.css">
-    <link href="/css/bootstrap.min.css" rel="stylesheet" title="bootstrap">
+    <link href="/css/app.css" rel="stylesheet" title="bootstrap">
     @yield('link')
 
     <title>@yield('title', 'HOME')-PFICTION</title>
 
 </head>
-<body style="background-color: #f9f0da;">
+<body style="background-color: #f9f0da; font-family: sans-serif;">
 {{--<header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="/">P-FICTION</a>

@@ -30,7 +30,7 @@ body {
 	text-rendering: optimizeLegibility; 
 	background-color: $base-background-color;
 	color: $base-font-color;
-	font-family: $base-font-family;
+	font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 	font-size: $base-font-size;
 	line-height: $base-line-height;
 }
@@ -40,7 +40,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: $header-font-family;
+	font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 	line-height: $header-line-height;
 	margin: 0;
 	color: $base-heading-font-color;
