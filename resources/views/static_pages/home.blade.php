@@ -56,7 +56,7 @@
             <div class="col">
                 <h2>Contact</h2>
                 <p>
-                    You can send me an email to pang.jie.yu@outlook.com
+                    You can send me an email to 1059403812@qq.com
                 </p>
             </div>
         </section>
